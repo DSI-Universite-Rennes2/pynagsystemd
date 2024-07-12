@@ -18,7 +18,7 @@ class SystemdStatus(nagiosplugin.Resource):
     def probe(self):
         # Execute systemctl --failed --no-legend and get output
         try:
-            p = subprocess.Popen(['systemctl', '--failed', '--no-legend'],
+            p = subprocess.Popen(['systemctl', '--failed', '--no-legend', '--no-pager', '--plain'],
                                  stderr=subprocess.PIPE,
                                  stdin=subprocess.PIPE,
                                  stdout=subprocess.PIPE)
